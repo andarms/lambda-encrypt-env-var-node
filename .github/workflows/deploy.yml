@@ -1,17 +1,12 @@
-
-
 name: aws lamda cd
 
-
 on:
-
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   workflow_dispatch:
-
 
 jobs:
   # This workflow contains a single job called "build"
@@ -21,14 +16,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      -name: "Deploy into aws"
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: "Deploy into aws"
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         uses: jusech5/bdb-dig-do-pipelines-action-lambdas-no-IaC@master
         with:
           aws-account-id: AWS_ACCOUNT
           aws-access-key-id: AWS_ACCESS_KEY
           aws-secret-access-key: AWS_SECRET
-          environment: prod 
+          environment: prod
           team: amrs
           app-name: lambda-ecrypt-env-vars
           bucket-name: arms-test-bucket
