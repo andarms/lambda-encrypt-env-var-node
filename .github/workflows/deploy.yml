@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: "Deploy into aws"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: andarms/encrypt-aws-env-vars@v4.1
+        uses: andarms/encrypt-aws-env-vars@v4.2
         with:
           aws-region: "sa-east-1"
           aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
