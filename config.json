@@ -1,0 +1,9 @@
+{
+  "Environment": {
+    "Variables": {
+      "var01": "Variable one",
+      "var02": "hola mundo"
+    }
+  },
+  "KMSKeyArn": "arn:aws:kms:sa-east-1:267693165925:key/20012f21-e663-4d86-8ea7-f7a37b23d7e2"
+}
