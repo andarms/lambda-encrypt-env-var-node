@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: "Deploy into aws"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: jusech5/bdb-dig-do-pipelines-action-lambdas-no-IaC@master
+        uses: jusech5/bdb-dig-do-pipelines-action-lambdas-no-IaC
         with:
           aws-account-id: AWS_ACCOUNT
           aws-access-key-id: AWS_ACCESS_KEY_ID
