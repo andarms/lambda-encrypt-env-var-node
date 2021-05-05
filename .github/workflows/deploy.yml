@@ -16,6 +16,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: "download files"
+        uses: actions/checkout@v2
       - name: "Deploy into aws"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         uses: andarms/encrypt-aws-env-vars@v4.4
