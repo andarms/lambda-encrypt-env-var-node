@@ -22,4 +22,4 @@ jobs:
         with:
           aws-region: "sa-east-1"
           aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
-          config-file-location: config.json
+          config-file-location: ./config.json
