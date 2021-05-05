@@ -16,12 +16,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: "download files"
+      - name: "Download files"
         uses: actions/checkout@v2
+
       - name: "Deploy into aws"
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: andarms/encrypt-aws-env-vars@v4.8
+        uses: andarms/encrypt-aws-env-vars@v5
         with:
           aws-region: "sa-east-1"
           aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           config-file-location: config.json
