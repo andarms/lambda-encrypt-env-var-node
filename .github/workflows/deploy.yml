@@ -21,9 +21,14 @@ jobs:
 
       - name: "Deploy into aws"
         uses: andarms/encrypt-aws-env-vars@v5.1
+          id: encrypt
         with:
           aws-region: "sa-east-1"
           aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           config-file-location: config.json
+    
+
+    - name: Run build
+      run: echo ${{ steps.encrypt.outputs.encrypted-file-location }}
