@@ -18,8 +18,13 @@ jobs:
     steps:
       - name: "Deploy into aws"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: andarms/encrypt-aws-env-vars
+        uses: jusech5/bdb-dig-do-pipelines-action-lambdas-no-IaC
         with:
-          aws-region: "sa-east-1
-          aws-cmk-arn: AWS_CMK_ARN_ID
-          config-file-location: "config.json"
+          aws-account-id: AWS_ACCOUNT
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          environment: prod
+          team: amrs
+          app-name: lambda-ecrypt-env-vars
+          bucket-name: arms-test-bucket
+          version: 1.0.0
