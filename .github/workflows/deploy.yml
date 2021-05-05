@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: "Deploy into aws"
-        uses: andarms/encrypt-aws-env-vars@v5
+        uses: andarms/encrypt-aws-env-vars@v5.1
         with:
           aws-region: "sa-east-1"
           aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
