@@ -19,7 +19,7 @@ jobs:
       - name: "Download files"
         uses: actions/checkout@v2
 
-      - name: Checkout andarms/bdb-dig-do-pipelines-actions
+      - name: Checkout andarms/-bdb-dig-do-pipelines-action-lambdas-IaC
         uses: actions/checkout@v2
         with:
           repository: andarms/-bdb-dig-do-pipelines-action-lambdas-IaC
@@ -27,6 +27,8 @@ jobs:
           token: ${{ secrets.ARMS_GITHUB_ACCESS_TOKEN }}
           persist-credentials: false
           path: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC
+      - name: ls
+        run: ls
       - name: Deploy Lambda Function
         uses: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC/action.yml
         with:
