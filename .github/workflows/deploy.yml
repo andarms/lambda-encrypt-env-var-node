@@ -24,7 +24,7 @@ jobs:
         with:
           repository: andarms/bdb-dig-do-pipelines-actions
           ref: ""
-          token: ${{ secrets.DIG_READER_GITHUB_ACCESS_TOKEN }}
+          token: ${{ secrets.ARMS_GITHUB_ACCESS_TOKEN }}
           persist-credentials: false
           path: ./.github/actions/bdb-dig-do-pipelines-actions
       - name: Deploy Lambda Function
