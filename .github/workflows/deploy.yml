@@ -19,15 +19,25 @@ jobs:
       - name: "Download files"
         uses: actions/checkout@v2
 
-      - name: "Deploy into aws"
-        uses: andarms/encrypt-aws-env-vars@v5.3
-        id: encrypt
+      - name: Checkout andarms/bdb-dig-do-pipelines-actions
+        uses: actions/checkout@v2
         with:
-          aws-region: "sa-east-1"
-          aws-cmk-arn: ${{ secrets.AWS_CMK_ARN_ID }}
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          config-file-location: config.json
-
-      - name: Run build
-        run: echo ${{ steps.encrypt.outputs.encrypted-file-location }}
+          repository: andarms/bdb-dig-do-pipelines-actions
+          ref: ""
+          token: ${{ secrets.DIG_READER_GITHUB_ACCESS_TOKEN }}
+          persist-credentials: false
+          path: ./.github/actions/bdb-dig-do-pipelines-actions
+      - name: Deploy Lambda Function
+        uses: ./.github/actions/bdb-dig-do-pipelines-actions/lambdas
+        with:
+          function-name: hola
+          aws-account-id: ${{ secrets.AWS_ACCOUNT }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: sa-east-1
+          version: $GITHUB_SHA
+          files-to-compress: "node_modules static build index.js package.json"
+          function-handler: index.handler
+          function-memory-size: 128
+          function-runtime: nodejs14.x
+          path-to-env-vars: pipeline/env.json

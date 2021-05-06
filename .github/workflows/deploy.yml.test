@@ -18,11 +18,11 @@ jobs:
     steps:
       - name: "Deploy into aws"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: jusech5/bdb-dig-do-pipelines-action-lambdas-no-IaC
+        uses: jusech5/-bdb-dig-do-pipelines-action-lambdas-IaC
         with:
-          aws-account-id: AWS_ACCOUNT
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          aws-account-id:  ${{ secrets.AWS_ACCOUNT }}
+          aws-access-key-id:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           environment: prod
           team: amrs
           app-name: lambda-ecrypt-env-vars
