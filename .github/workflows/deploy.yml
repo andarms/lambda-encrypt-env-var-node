@@ -22,7 +22,7 @@ jobs:
       - name: Checkout andarms/bdb-dig-do-pipelines-actions
         uses: actions/checkout@v2
         with:
-          repository: andarms/-bdb-dig-do-pipelines-actions
+          repository: andarms/-bdb-dig-do-pipelines-action-lambdas-IaC
           ref: ""
           token: ${{ secrets.ARMS_GITHUB_ACCESS_TOKEN }}
           persist-credentials: false
