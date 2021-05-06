@@ -28,7 +28,7 @@ jobs:
           persist-credentials: false
           path: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC
       - name: Deploy Lambda Function
-        uses: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC
+        uses: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC/action.yml
         with:
           function-name: hola
           aws-account-id: ${{ secrets.AWS_ACCOUNT }}
