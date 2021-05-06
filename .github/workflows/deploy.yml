@@ -30,7 +30,7 @@ jobs:
       - name: ls
         run: ls -a -R .github
       - name: Deploy Lambda Function
-        uses: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC/action.yml
+        uses: ./.github/actions/-bdb-dig-do-pipelines-action-lambdas-IaC/
         with:
           function-name: hola
           aws-account-id: ${{ secrets.AWS_ACCOUNT }}
