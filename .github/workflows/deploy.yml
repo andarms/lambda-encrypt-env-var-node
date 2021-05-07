@@ -36,6 +36,7 @@ jobs:
           aws-account-id: ${{ secrets.AWS_ACCOUNT }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-cmk: ${{secrets.AWS_CMK_ARN_ID}}
           aws-region: sa-east-1
           version: $GITHUB_SHA
           files-to-compress: "node_modules static build index.js package.json"
@@ -43,3 +44,4 @@ jobs:
           function-memory-size: 128
           function-runtime: nodejs14.x
           path-to-env-vars: pipeline/env.json
+          encrypt-env-vars: true
