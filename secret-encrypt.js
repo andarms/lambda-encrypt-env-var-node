@@ -14,7 +14,7 @@ exports.decryptSecret = async (secretName) => {
     const req = {
       CiphertextBlob: Buffer.from(process.env[secretName], "base64"),
       KeyId:
-        "arn:aws:kms:sa-east-1:267693165925:key/20012f21-e663-4d86-8ea7-f7a37b23d7e2",
+        "arn:aws:kms:sa-east-1:267693165925:key/b988d473-b222-4ac8-8988-7c7fc4842db5",
     };
     const data = await kms.decrypt(req).promise();
     const decryptedVal = data.Plaintext.toString("ascii");
