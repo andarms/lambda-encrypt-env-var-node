@@ -1,4 +1,4 @@
-const { decryptSecret } = require("./secret-encrypt");
+const axios = require("axios");
 
 exports.handler = async () => {
   const secret1 = process.env.var01;
@@ -19,12 +19,7 @@ async function decrypt(variables) {
   }
 
   const url = "https://x5z10sp02c.execute-api.sa-east-1.amazonaws.com/test";
-  const request = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  return request.json;
+
+  const request = await axios.post(url, data);
+  return request;
 }
