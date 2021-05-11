@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require("axios").default;
 
 exports.handler = async () => {
   const secret1 = process.env.var01;
@@ -22,5 +22,5 @@ async function decrypt(variables) {
   const url = "https://x5z10sp02c.execute-api.sa-east-1.amazonaws.com/test";
 
   const response = await axios.post(url, data);
-  return await response.json();
+  return response.data;
 }
