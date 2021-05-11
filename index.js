@@ -3,9 +3,10 @@ const axios = require("axios");
 exports.handler = async () => {
   const secret1 = process.env.var01;
   const secret2 = process.env.var01;
-  const { ARMS } = await decrypt(["ARMS"]);
+  const data = await decrypt(["ARMS"]);
+  console.log(data);
 
-  return `var: '${secret1}' var 2: '${secret2}', text from secrets:  ARMS: ${ARMS}`;
+  return `var: '${secret1}' var 2: '${secret2}', text from secrets:  ARMS: ${data.ARMS}`;
 };
 
 async function decrypt(variables) {
