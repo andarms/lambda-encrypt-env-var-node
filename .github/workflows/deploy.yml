@@ -27,8 +27,8 @@ jobs:
           token: ${{ secrets.ARMS_GITHUB_ACCESS_TOKEN }}
           persist-credentials: false
           path: ./.github/actions/bdb-dig-do-pipelines-action-lambdas-IaC
-      - name: ls
-        run: ls -a -R .github
+      - name: install dependecies
+        run: node ci
       - name: Deploy Lambda Function
         uses: ./.github/actions/bdb-dig-do-pipelines-action-lambdas-IaC/
         with:
