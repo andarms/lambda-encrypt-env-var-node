@@ -21,6 +21,6 @@ async function decrypt(variables) {
 
   const url = "https://x5z10sp02c.execute-api.sa-east-1.amazonaws.com/test";
 
-  const request = await axios.post(url, data);
-  return request.data;
+  const response = await axios.post(url, data);
+  return await response.json();
 }
