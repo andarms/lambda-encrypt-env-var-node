@@ -28,7 +28,7 @@ jobs:
           persist-credentials: false
           path: ./.github/actions/bdb-dig-do-pipelines-action-lambdas-IaC
       - name: install dependecies
-        run: node ci
+        run: npm ci
       - name: Deploy Lambda Function
         uses: ./.github/actions/bdb-dig-do-pipelines-action-lambdas-IaC/
         with:
